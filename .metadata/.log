@@ -1,0 +1,28 @@
+!SESSION 2015-04-15 00:08:36.773 -----------------------------------------------
+eclipse.buildId=4.3.0.M20130911-1000
+java.version=1.7.0_51
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.jee.product -keyring /Users/aleckretch/.eclipse_keyring -showlocation
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.jee.product -keyring /Users/aleckretch/.eclipse_keyring -showlocation
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2015-04-15 00:10:01.234
+!MESSAGE unexpected method call (NullSarosSession.java:64)
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2015-04-15 00:10:01.239
+!MESSAGE unexpected method call (NullSarosSession.java:64)
+
+!ENTRY org.eclipse.core.net 1 0 2015-04-15 00:10:04.192
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2015-04-15 00:10:37.552
+!MESSAGE unexpected method call (NullSarosSession.java:64)
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2015-04-15 00:10:37.555
+!MESSAGE unexpected method call (NullSarosSession.java:64)
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2015-04-15 00:14:54.353
+!MESSAGE unexpected method call (NullSarosSession.java:64)
+
+!ENTRY de.fu_berlin.inf.dpp 2 0 2015-04-15 00:14:54.387
+!MESSAGE unexpected method call (NullSarosSession.java:64)
