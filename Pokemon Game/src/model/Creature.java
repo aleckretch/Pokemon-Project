@@ -13,6 +13,8 @@ public class Creature {
 	public Creature(String name){
 		this.name = name;
 	}
+	
+	//inflicts damage on pokemon and increases run probability
 	public void rock(int damage){
 		runDuration--;
 		hp -= damage;
