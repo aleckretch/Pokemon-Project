@@ -15,6 +15,7 @@ public class Player {
 	private int MAX_CREATURES = 10;
 	private Creature[] collection = new Creature[MAX_CREATURES];
 	private Creature target;
+	private int x, y;
 	
 	public Player(String name){
 		this.name = name;
@@ -58,4 +59,36 @@ public class Player {
 	public Creature[] getCollection(){
 		return collection;
 	}
+	
+	public int getX()
+	{
+		return x;
+	}
+	
+	public int getY()
+	{
+		return y;
+	}
+	
+	public void moveLeft()
+	{
+		x--;
+	}
+	
+	public void moveRight()
+	{
+		x++;
+	}
+	
+	public void moveUp()
+	{
+		y++;
+	}
+	
+	public void moveDown()
+	{
+		y--;
+	}
+	
+	
 }
