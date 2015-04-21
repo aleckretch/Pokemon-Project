@@ -26,8 +26,6 @@ public class GUI extends JFrame{
 		frame.setVisible(true);
 		
 	}
-	
-	//updates Collection
 	public void updateCollection(Creature[] in){
 		String result = "";
 		for (int i = 0; i < in.length; i++){

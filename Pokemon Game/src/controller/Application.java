@@ -2,6 +2,7 @@ package controller;
 
 import java.util.Scanner;
 
+import creatures.Mouse;
 import view.GUI;
 import model.Creature;
 import model.Player;
@@ -9,12 +10,14 @@ import model.Player;
 public class Application {
 	static Scanner s = new Scanner(System.in);
 	static Player p = new Player("Me");
-	static Creature[] creatures;
+	static Mouse[] creatures;
 	
 	public static void main(String[] args){
-		creatures = new Creature[3];
-		creatures[0] = new Creature("c0");
-		creatures[1] = new Creature("c1");
+		creatures = new Mouse[2];
+		creatures[0] = new Mouse("c0", 1);
+		creatures[1] = new Mouse("c1", 9);
+		//creatures[0] = new Mouse("c0", 1);
+		//creatures[1] = new Mouse("c1", 9);
 		GUI gui = new GUI();
 		p.faceCreature(creatures[0]);
 		while (creatures[0].isPresent()){

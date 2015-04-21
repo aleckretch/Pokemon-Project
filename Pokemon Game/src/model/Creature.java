@@ -1,20 +1,43 @@
 package model;
 
-public class Creature {
-	private int MAX_LUCK = 80;
-	private int MIN_LUCK = 60;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.Random;
+
+import javax.imageio.ImageIO;
+
+public abstract class Creature {
+	private int MAX_LUCK;
+	private int MIN_LUCK;
 	private boolean isPresent = true; //goes false if dies or runs
 	private String name;
-	private int hp = 100;
-	private int runProb = 20;
-	private int runDuration = 7;
-	private int rarity = 6; //higher means less rare
+	private int hp;
+	private int runProb;
+	private int runDuration;
+	private int rarity; //higher means less rare
+	private BufferedImage sprite;
 	
-	public Creature(String name){
+	public Creature (String name, String imgFilePath, int maxLuck, int minLuck, int hp, int runProb, int runDuration) {
 		this.name = name;
+		this.MAX_LUCK = maxLuck;
+		this.MIN_LUCK = minLuck;
+		this.hp = hp;
+		this.runProb = runProb;
+		this.runDuration = runDuration;
+		this.sprite = null;
+
+		try 
+		{
+		    sprite = ImageIO.read(new File(imgFilePath));
+		} 
+		catch (IOException e) 
+		{
+		    e.printStackTrace();
+		}
+		
 	}
 	
-	//inflicts damage on pokemon and increases run probability
 	public void rock(int damage){
 		runDuration--;
 		hp -= damage;
@@ -38,6 +61,14 @@ public class Creature {
 		checkDuration();
 		checkRunProb();
 		return false;
+	}
+	public boolean ball2(){
+		if (!isPresent){
+			return false;
+		}
+		runDuration--;
+		Random r = new Random();
+		int ballPower = r.nextInt() * 
 	}
 	public void bait(int damage){
 		runDuration--;
