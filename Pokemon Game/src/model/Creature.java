@@ -23,6 +23,7 @@ public abstract class Creature {
 		this.hp = hp;
 		this.runProb = runProb;
 		this.runDuration = runDuration;
+		this.luck = luck;
 		this.sprite = null;
 
 		try 
