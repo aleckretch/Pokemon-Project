@@ -8,8 +8,8 @@ import java.util.Random;
 import javax.imageio.ImageIO;
 
 public abstract class Creature {
-	private int MAX_LUCK;
-	private int MIN_LUCK;
+	private int BALL_POWER = 50;
+	private int luck;//affects each throw type, and its potency
 	private boolean isPresent = true; //goes false if dies or runs
 	private String name;
 	private int hp;
@@ -18,10 +18,8 @@ public abstract class Creature {
 	private int rarity; //higher means less rare
 	private BufferedImage sprite;
 	
-	public Creature (String name, String imgFilePath, int maxLuck, int minLuck, int hp, int runProb, int runDuration) {
+	public Creature (String name, String imgFilePath, int hp, int runProb, int runDuration) {
 		this.name = name;
-		this.MAX_LUCK = maxLuck;
-		this.MIN_LUCK = minLuck;
 		this.hp = hp;
 		this.runProb = runProb;
 		this.runDuration = runDuration;
@@ -40,8 +38,8 @@ public abstract class Creature {
 	
 	public void rock(int damage){
 		runDuration--;
-		hp -= damage;
-		runProb += damage;
+		hp -= damage + getRandom(luck, 0);
+		runProb += (int)(damage/2);
 		checkDead();
 		checkDuration();
 		checkRunProb();
@@ -51,8 +49,7 @@ public abstract class Creature {
 			return false;
 		}
 		runDuration--;
-		float luck = (float) (Math.random() * 100 + MAX_LUCK);//[][]fix this line/////////////////////////////////
-		if (luck > hp){
+		if (hp < BALL_POWER){
 			System.out.println("Catching luck " + luck);
 			isPresent = false;
 			return true;
@@ -62,14 +59,7 @@ public abstract class Creature {
 		checkRunProb();
 		return false;
 	}
-	public boolean ball2(){
-		if (!isPresent){
-			return false;
-		}
-		runDuration--;
-		Random r = new Random();
-		int ballPower = r.nextInt() * 
-	}
+	
 	public void bait(int damage){
 		runDuration--;
 		runProb -= damage;
@@ -102,5 +92,9 @@ public abstract class Creature {
 	}
 	public int getHp(){
 		return hp;
+	}
+	private int getRandom(int max, int min){
+		Random r = new Random();
+		return r.nextInt(max - min) + min;
 	}
 }
