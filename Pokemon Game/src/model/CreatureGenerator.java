@@ -11,48 +11,50 @@ public class CreatureGenerator {
 		//possibly accept a random seed here if needed
 	}
 	
-	public Creature makeCreature(){
-		int rarity = getRandom(10, 1);
-
-		if (rarity > 9){
-			//1/10: rare creature
-		} else if (rarity > 6){
-			//4/10: uncommon creature
-		} else {
-			//6/10;: common creature
-		}
-		return pokemon;
-	}
-	
 	public void setPokemon(){
-		int randomNumber = getRandom(7, 1);
-		if (randomNumber == 1)
+		int randomNumber = getRandom(100, 1);
+		//common (each has 12% chance to appear)
+		if (randomNumber < 12)
+		{
+			pokemon = new CreatureEkans();
+		}
+		else if (randomNumber < 24)
+		{
+			pokemon = new CreatureMankey();
+		}
+		else if (randomNumber < 36)
+		{
+			pokemon = new CreatureNidoranFemale();
+		}
+		else if (randomNumber < 48)
+		{
+			pokemon = new CreatureNidoranMale();
+		}
+		else if (randomNumber < 60)
 		{
 			pokemon = new CreaturePidgey();
 		}
-		else if (randomNumber == 2)
+		else if (randomNumber < 72)
 		{
-			
+			pokemon = new CreatureRattata();
 		}
-		else if (randomNumber == 3)
+		//uncommon (each has 8% chance to appear)
+		else if (randomNumber < 80)
 		{
-			
+			pokemon = new CreatureBeedrill();
 		}
-		else if (randomNumber == 4)
+		else if (randomNumber < 88)
 		{
-			
+			pokemon = new CreatureClefable();
 		}
-		else if (randomNumber == 5)
+		else if (randomNumber < 96)
 		{
-			
+			pokemon = new CreaturePikachu();
 		}
-		else if (randomNumber == 6)
+		//rare (4% chance to appear)
+		else
 		{
-			
-		}
-		else if (randomNumber == 7)
-		{
-			
+			pokemon = new CreatureMewtwo();
 		}
 	}
 	
