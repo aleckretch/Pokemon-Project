@@ -35,4 +35,7 @@ public class GUI extends JFrame{
 		System.out.println("setting text " + result);
 		collection.setText(result);
 	}
+	public static void main(String[] args){
+		new GUI();
+	}
 }

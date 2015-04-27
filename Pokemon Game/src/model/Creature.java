@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 
 public abstract class Creature {
 	private int BALL_POWER = 50;
-	private int luck;//affects each throw type, and its potency
+	private int luck;//an added bonus to the rock's damage, or the bait's luring.  
 	private boolean isPresent = true; //goes false if dies or runs
 	private String name;
 	private int hp;
