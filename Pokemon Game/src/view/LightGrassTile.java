@@ -1,7 +1,7 @@
 package view;
 
 
-import javax.swing.JLabel;
+import java.awt.Image;
 
 public class LightGrassTile extends Tile{
 	
@@ -10,11 +10,15 @@ public class LightGrassTile extends Tile{
 		super("pics/lightGrass.jpeg",x,y);
 	}
 	
-	public JLabel getLabel()
+	public Image getImage()
 	{
-		return super.getLabel();
+		return super.getImage();
 	}
 	
+	public String getType()
+	{
+		return "lightGrass";
+	}
 	
 
 }

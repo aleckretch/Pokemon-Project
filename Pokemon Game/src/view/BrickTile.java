@@ -1,18 +1,23 @@
 package view;
 
-import javax.swing.JLabel;
+import java.awt.Image;
 
 
 public class BrickTile extends Tile{
 		
 	public BrickTile(int x, int y)
 	{
-		super("pics/brick_tile_red.png",x,y);
+		super("pics/brick_tile_red.jpg",x,y);
 	}
 	
-	public JLabel getLabel()
+	public Image getImage()
 	{
-		return super.getLabel();
+		return super.getImage();
+	}
+	
+	public String getType()
+	{
+		return "brick";
 	}
 
 }

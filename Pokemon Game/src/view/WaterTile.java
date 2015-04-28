@@ -1,6 +1,6 @@
 package view;
 
-import javax.swing.JLabel;
+import java.awt.Image;
 
 
 public class WaterTile extends Tile{
@@ -10,9 +10,14 @@ public class WaterTile extends Tile{
 		super("pics/water.jpeg",x,y);
 	}
 	
-	public JLabel getLabel()
+	public Image getImage()
 	{
-		return super.getLabel();
+		return super.getImage();
+	}
+	
+	public String getType()
+	{
+		return "water";
 	}
 
 	

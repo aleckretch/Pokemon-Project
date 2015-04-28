@@ -1,17 +1,22 @@
 package view;
 
-import javax.swing.JLabel;
+import java.awt.Image;
 
 
 public class TreeTile extends Tile{
 	
 	public TreeTile(int x, int y)
 	{
-		super("pics/tree.png",x,y);
+		super("pics/tree.jpg",x,y);
 	}
 	
-	public JLabel getLabel()
+	public Image getImage()
 	{
-		return super.getLabel();
+		return super.getImage();
+	}
+	
+	public String getType()
+	{
+		return "tree";
 	}
 }

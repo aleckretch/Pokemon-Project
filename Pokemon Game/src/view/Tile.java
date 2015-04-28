@@ -1,39 +1,55 @@
 package view;
 
 import java.awt.Image;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
-import javax.swing.JLabel;
 
 public abstract class Tile{
 	
-	private JLabel label;
-	private int x, y;
+	private int x, y, width, height;
+	Image image;
+	
 	
 	public Tile(String img, int x, int y)
 	{
 		Icon imageIcon = new ImageIcon(img);
-		Image image = ((ImageIcon) imageIcon).getImage();
-		Image img2 = image.getScaledInstance(25,25,1);
-		Icon newImageIcon = new ImageIcon(img2);
-		label = new JLabel(newImageIcon);
+		image = ((ImageIcon) imageIcon).getImage();
+		width=25;
+		height=25;
+		image.getScaledInstance(width,height,1);
 		this.x = x;
 		this.y = y;
 	}
 	
 	public int getX()
 	{
-		return x;
+		return x*width;
 	}
 	
 	public int getY()
 	{
-		return y;
+		return y*height;
 	}
 	
-	public JLabel getLabel()
+	public int getWidth()
 	{
-		return label;
+		return width;
+		
 	}
+	
+	public int getHeight()
+	{
+		return height;
+	}
+	
+	public Image getImage()
+	{
+		return image;
+	}
+	
+	public abstract String getType();
+	
+	
 
 }
