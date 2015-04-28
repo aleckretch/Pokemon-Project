@@ -3,6 +3,7 @@ package view;
 
 
 import java.awt.Button;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
@@ -10,13 +11,20 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import javax.swing.JFrame;
-//import sun.applet.Main;
+
+import view.SelectMap;
+import view.Menu;
+import view.Win;
+
+
+
+
 
 
 public class Pokemon implements MouseListener{
 
-    
-    public static void main(String[] args) 
+  
+	public static void main(String[] args) 
     {
         Pokemon pm= new Pokemon();
         pm.action();
@@ -27,22 +35,30 @@ public class Pokemon implements MouseListener{
          
         jf.setDefaultCloseOperation (JFrame.EXIT_ON_CLOSE);
         con.setLayout(new FlowLayout());
-        jf.setSize(600, 400);
+        
         jf.setVisible(true);
+        jf.setSize(599,399);
+        jf.setSize(600, 400);
+     
+        
+        
+        
         map=new Button("SelectMap");
         con.add(map);
-        
         map.addMouseListener(this);
-        option=new Button("Option");
+        
+        option=new Button("Menu");
         con.add(option);
         option.addMouseListener(this);
-        nameofpokemon=new Button("nameofpokemon");
+        nameofpokemon=new Button("PokeDex");
         con.add(nameofpokemon);
         nameofpokemon.addMouseListener(this);
         win=new Button("Win");
         con.add(win);
         win.addMouseListener(this);
-        
+        selectchar=new Button("selectchar");
+        con.add(selectchar);
+        selectchar.addMouseListener(this);
         
         
     
@@ -52,8 +68,6 @@ public class Pokemon implements MouseListener{
     Button nameofpokemon;
     Button win;
     Button selectchar;
-	private Object item;
-	private Object safariball;
     @Override
     public void mouseClicked(MouseEvent e) 
     {
@@ -62,15 +76,30 @@ public class Pokemon implements MouseListener{
             SelectMap map=new SelectMap();
             map.setVisible(true);
         }
-       
-	
-       /* if(e.getSource()==safariball)
+        
+        if(e.getSource()==option)
         {
-            SafariBall n=new SafariBall();
+            Menu option=new Menu();
+            option.setVisible(true);
+        }
+        /*
+        if(e.getSource()==nameofpokemon)
+        {
+            Nameofpokemon n=new Nameofpokemon();
             n.setVisible(true);
-        } */
-        
-        
+        }
+        */
+        if(e.getSource()==win)
+        {
+            Win w=new Win();
+           win.setVisible(true);
+        }
+        /*
+        if(e.getSource()==selectchar){
+            Selectchar selectchar=new Selectchar();
+            selectchar.setVisible(true);
+        }
+        */
     }
 
     @Override
