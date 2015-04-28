@@ -3,7 +3,7 @@ package model;
 public class CreaturePidgey extends Creature{
 
 	public CreaturePidgey() {
-		super("Pidgey", "PIDGEY FILE PATH IMAGE", 90, 70, 35, 5, 10);
+		super("Pidgey", "pics/pidgey.png", 35, 15, 8);
 	}
 
 }
