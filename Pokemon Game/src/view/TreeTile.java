@@ -7,7 +7,7 @@ public class TreeTile extends Tile{
 	
 	public TreeTile(int x, int y)
 	{
-		super("pics/tree.jpg",x,y);
+		super("pics/tree.png",x,y);
 	}
 	
 	public Image getImage()
