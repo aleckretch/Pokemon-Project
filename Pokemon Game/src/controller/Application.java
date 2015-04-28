@@ -1,7 +1,9 @@
 package controller;
 
+
 import java.util.Scanner;
 
+import creatures.CommonCreature;
 import creatures.Mouse;
 import view.GUI;
 import model.Creature;
@@ -13,13 +15,17 @@ public class Application {
 	static Mouse[] creatures;
 	
 	public static void main(String[] args){
-		creatures = new Mouse[2];
-		creatures[0] = new Mouse("c0", 1);
-		creatures[1] = new Mouse("c1", 9);
+		GUI gui = new GUI(p);
+
+		//creatures = new Mouse[2];
+		CommonCreature first = new CommonCreature("c0", 9);
+		//creatures[1] = new Mouse("c1", 9);
 		//creatures[0] = new Mouse("c0", 1);
 		//creatures[1] = new Mouse("c1", 9);
-		GUI gui = new GUI();
-		p.faceCreature(creatures[0]);
+		//p.faceCreature(creatures[0]);
+		p.faceCreature(first);
+		//gui.updateEnemyPic();
+		/*
 		while (creatures[0].isPresent()){
 			printOptions();
 			int in = s.nextInt();
@@ -54,8 +60,8 @@ public class Application {
 			else if (in == 4){
 				System.out.println(creatures[0].getHp());
 			}
-		}
-		gui.updateCollection(p.getCollection());
+		}*/
+		//gui.updateCollection(p.getCollection());
 	}
 	public static void printOptions(){
 		System.out.println("1: rock");
