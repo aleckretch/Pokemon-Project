@@ -17,7 +17,7 @@ public abstract class Creature {
 	private int runDuration;
 	private int rarity; //higher means less rare
 	private BufferedImage sprite;
-	private String imgFilePath ="src/baitImage.jpg";
+	private String imgFilePath = "src/baitImage.jpg";
 	
 	public Creature (String name, String imgFilePath, int hp, int runProb, int runDuration) {
 		this.name = name;
