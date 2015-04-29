@@ -9,9 +9,13 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 
 import javax.imageio.ImageIO;
+import javax.sound.sampled.AudioInputStream;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -21,7 +25,11 @@ import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextPane;
-
+/*
+import sun.audio.AudioData;
+import sun.audio.AudioPlayer;
+import sun.audio.AudioStream;
+*/import sun.audio.*;
 import model.Creature;
 import model.Player;
 
@@ -40,10 +48,11 @@ public class GUI extends JFrame{
 	JTextPane collection = new JTextPane();
 	JTextPane readout = new JTextPane();
 	
-	String rockIcon = "src/rockImage.jpg";
-	String ballIcon = "src/pokeballImage.jpg";
-	String baitIcon = "src/baitImage.jpg";
-	String runIcon = "src/runImage.jpg";
+	//String rockIcon = "src/rockImage.jpg";
+	String rockIcon = "Pokemon Game/src/rockImage.jpg";
+	String ballIcon = "Pokemon Game/src/pokeballImage.jpg";
+	String baitIcon = "Pokemon Game/src/baitImage.jpg";
+	String runIcon = "Pokemon Game/src/runImage.jpg";
 	String enemyIcon;
 	
 	JLabel enemyImage;
@@ -61,6 +70,7 @@ public class GUI extends JFrame{
 	JLayeredPane backPane = new JLayeredPane();
 	
 	public GUI(final Player player){
+		playLoadingMusic();
 		this.player = player;
 		this.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -84,8 +94,6 @@ public class GUI extends JFrame{
 		//rockButton.setIcon(new ImageIcon(rockIcon));
 		
 
-		
-		
 		rockButton.setIcon(new ImageIcon(rockIcon));
 		ballButton.setIcon(new ImageIcon(ballIcon));
 		baitButton.setIcon(new ImageIcon(baitIcon));
@@ -200,5 +208,37 @@ public class GUI extends JFrame{
 		//BufferedImage out = new BufferedImage(200, 200, in);
 		
 			return new BufferedImage(0, 0, 0);
+	}
+	
+	private void playLoadingMusic(){
+		String musicPath = "Pokemon Game/src/Petwoo_Audio.mid";
+		try{
+			
+		
+			InputStream in = new FileInputStream(musicPath);
+			AudioStream audio = new AudioStream(in);
+			AudioPlayer.player.start(audio);
+		}catch (Exception e){
+			System.out.println("audio issue");
+		}
+		
+		
+		/*
+		AudioPlayer ap = AudioPlayer.player;
+		AudioStream as;
+		AudioData data;
+		try{
+			InputStream in = new FileInputStream(musicPath);
+			System.out.print("--");
+			System.out.println(in.available());
+			as = new AudioStream(in);
+			System.out.print("--");
+			data = as.getData();
+			System.out.print("--");
+			ap.start(as);
+			System.out.print("Found audio file.");
+		} catch (IOException e){
+			System.out.println("No audio file found.");
+		}*/
 	}
 }
