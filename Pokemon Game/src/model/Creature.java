@@ -17,7 +17,7 @@ public abstract class Creature {
 	private int runDuration;
 	private int rarity; //higher means less rare
 	private BufferedImage sprite;
-	private String imgFilePath = "src/baitImage.jpg";
+	private String imgFilePath;
 	
 	public Creature (String name, String imgFilePath, int hp, int runProb, int runDuration) {
 		this.name = name;
@@ -26,7 +26,7 @@ public abstract class Creature {
 		this.runDuration = runDuration;
 		this.luck = luck;
 		this.sprite = null;
-
+		this.imgFilePath = imgFilePath;
 		try 
 		{
 		    sprite = ImageIO.read(new File(imgFilePath));
@@ -94,6 +94,9 @@ public abstract class Creature {
 	}
 	public int getHp(){
 		return hp;
+	}
+	public int getRunProb(){
+		return runProb;
 	}
 	private int getRandom(int max, int min){
 		Random r = new Random();
