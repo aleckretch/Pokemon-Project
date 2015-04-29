@@ -2,7 +2,6 @@ package view;
 
 
 import java.awt.Graphics;
-import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
