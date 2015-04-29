@@ -87,17 +87,19 @@ public class Welcome extends JFrame implements MouseListener {
     new Welcome();
     }
 
+    
 	@Override
 	public void mouseClicked(MouseEvent e) {
 		
 		if(e.getSource()==b1)
         {
             SelectMap b1=new SelectMap();
-            b1.setVisible(true);
+            b1.setVisible(false);
         }
         
 	
-	} 
+	
+	}
 
 	@Override
 	public void mousePressed(MouseEvent e) {

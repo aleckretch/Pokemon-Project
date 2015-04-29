@@ -1,7 +1,5 @@
 package view;
 
-
-
 import java.awt.Button;
 import java.awt.Component;
 import java.awt.Container;
@@ -17,17 +15,16 @@ import view.Menu;
 import view.Win;
 
 
-
-
-
-
-public class Pokemon implements MouseListener{
+public class Info implements MouseListener{
 
   
+	static JFrame jf;
+
+
 	public static void main(String[] args) 
     {
-        Pokemon pm= new Pokemon();
-        pm.action();
+        Info info= new Info();
+        info.action();
     }
     public  void action() {
             JFrame jf=new JFrame();
@@ -53,12 +50,9 @@ public class Pokemon implements MouseListener{
         nameofpokemon=new Button("PokeDex");
         con.add(nameofpokemon);
         nameofpokemon.addMouseListener(this);
-        win=new Button("Win");
-        con.add(win);
-        win.addMouseListener(this);
-        selectchar=new Button("selectchar");
-        con.add(selectchar);
-        selectchar.addMouseListener(this);
+        instruction=new Button("Instruction");
+        con.add(instruction);
+        instruction.addMouseListener(this);
         
         
     
@@ -66,40 +60,27 @@ public class Pokemon implements MouseListener{
     Button option;
     Button map;
     Button nameofpokemon;
-    Button win;
-    Button selectchar;
+    Button instruction;
+    
+   
     @Override
     public void mouseClicked(MouseEvent e) 
     {
+    	
         if(e.getSource()==map)
         {
             SelectMap map=new SelectMap();
-            map.setVisible(true);
+            map.setVisible(false);
+            
         }
         
         if(e.getSource()==option)
         {
             Menu option=new Menu();
-            option.setVisible(true);
+            option.setVisible(false);
         }
-        /*
-        if(e.getSource()==nameofpokemon)
-        {
-            Nameofpokemon n=new Nameofpokemon();
-            n.setVisible(true);
-        }
-        */
-        if(e.getSource()==win)
-        {
-            Win w=new Win();
-           win.setVisible(true);
-        }
-        /*
-        if(e.getSource()==selectchar){
-            Selectchar selectchar=new Selectchar();
-            selectchar.setVisible(true);
-        }
-        */
+       
+       
     }
 
     @Override

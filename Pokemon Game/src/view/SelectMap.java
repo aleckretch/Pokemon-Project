@@ -37,7 +37,7 @@ public class SelectMap extends JFrame {
 	//Declare the method
 	public void gui(){
 		//Frame
-		frame = new JFrame("POKEMON");
+		frame = new JFrame("SELECT MAP");
 		frame.setVisible(true);  // set to Visible
 		frame.setSize(599,399); //Refress it
 		frame.setSize(600,400);  // Declare the size
