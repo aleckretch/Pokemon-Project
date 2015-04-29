@@ -7,6 +7,7 @@ import creatures.CommonCreature;
 import creatures.Mouse;
 import view.GUI;
 import model.Creature;
+import model.CreatureGenerator;
 import model.Player;
 
 public class Application {
@@ -15,15 +16,22 @@ public class Application {
 	static Mouse[] creatures;
 	
 	public static void main(String[] args){
-		GUI gui = new GUI(p);
 
 		//creatures = new Mouse[2];
 		CommonCreature first = new CommonCreature("c0", 9);
+		
 		//creatures[1] = new Mouse("c1", 9);
 		//creatures[0] = new Mouse("c0", 1);
 		//creatures[1] = new Mouse("c1", 9);
 		//p.faceCreature(creatures[0]);
-		p.faceCreature(first);
+		//p.faceCreature(first);
+		//GUI gui = new GUI(p);
+
+		CreatureGenerator cg = new CreatureGenerator();
+		cg.setPokemon();
+		p.faceCreature(cg.getPokemon());
+		GUI gui = new GUI(p);
+
 		//gui.updateEnemyPic();
 		/*
 		while (creatures[0].isPresent()){
