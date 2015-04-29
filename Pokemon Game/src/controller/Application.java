@@ -18,7 +18,7 @@ public class Application {
 	public static void main(String[] args){
 
 		//creatures = new Mouse[2];
-		CommonCreature first = new CommonCreature("c0", 9);
+		//CommonCreature first = new CommonCreature("c0", 9);
 		
 		//creatures[1] = new Mouse("c1", 9);
 		//creatures[0] = new Mouse("c0", 1);
