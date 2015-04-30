@@ -1892,3 +1892,8 @@ java.io.FileNotFoundException: /Users/aleckretch/Dropbox/Schoolwork/Spring 2014/
 
 !ENTRY de.fu_berlin.inf.dpp 2 0 2015-04-29 22:39:07.252
 !MESSAGE unexpected method call (NullSarosSession.java:64)
+
+!ENTRY org.eclipse.core.resources 2 2 2015-04-29 22:43:51.360
+!MESSAGE Save operation warnings.
+!SUBENTRY 1 org.eclipse.core.resources 2 234 2015-04-29 22:43:51.361
+!MESSAGE The project description file (.project) for 'Pokemon Game' was missing.  This file contains important information about the project.  A new project description file has been created, but some information about the project may have been lost.
