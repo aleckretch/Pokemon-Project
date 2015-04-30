@@ -17,7 +17,7 @@ public abstract class Tile{
 		image = ((ImageIcon) imageIcon).getImage();
 		width=25;
 		height=25;
-		image.getScaledInstance(width,height,1);
+		image = image.getScaledInstance(width,height,1);
 		this.x = x;
 		this.y = y;
 	}

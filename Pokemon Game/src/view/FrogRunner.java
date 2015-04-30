@@ -1,4 +1,5 @@
 package view;
+import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
@@ -12,6 +13,7 @@ import java.util.List;
 import java.util.TreeSet;
 
 import javax.swing.JFrame;
+import javax.swing.JLayeredPane;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
@@ -19,21 +21,22 @@ import view.Frog;
 import view.SpriteObject;
 
 
-public class FrogRunner {
+public class FrogRunner{
 	private TreeSet<Character> keySet;
 	private SpriteObject frog;
-	private Map map;
 	private JPanel panel;
+	private JLayeredPane lpane = new JLayeredPane();
 	private Timer animTimer;
-	
+	Map map;
 	// TODO 7: run the runner and click to see explosions!
 	// TODO 15: run this and move the frog around!
 	
 	public FrogRunner() {
-		keySet = new TreeSet<Character>();
 		map = new Map();
+		keySet = new TreeSet<Character>();
+
 		// TODO 13: uncomment these two lines
-		frog = new Frog(400, 300);
+		frog = new Frog(20, 25);
 		frog.start();
 		
 		// creates the panel that actually draws the sprites
@@ -48,6 +51,20 @@ public class FrogRunner {
 		};
 		
 		panel.setPreferredSize(new Dimension(400,300));
+		JFrame frame = new JFrame();
+		frame.setPreferredSize(new Dimension(625, 625));
+		frame.setLayout(new BorderLayout());
+		lpane.setBounds(0,0,625,625);
+		map.setBounds(0,0,625,625);
+		map.setOpaque(true);
+		panel.setBounds(0,0,625,625);
+		panel.setOpaque(false);
+		lpane.add(map, new Integer(0),0);
+		lpane.add(panel, new Integer(1), 0);
+		frame.add(lpane);
+		frame.pack();
+		frame.repaint();
+		frame.setVisible(true);
 		
 		// creates the timer for animating the panel
 		animTimer = new Timer(15, new ActionListener(){
@@ -68,14 +85,15 @@ public class FrogRunner {
 				
 				
 				// repaint the panel
+				map.repaint();
 				panel.repaint();
 			}
 			
 		});
 				
-		map.add(panel);
 		
-		map.addKeyListener(new KeyAdapter(){
+		
+		frame.addKeyListener(new KeyAdapter(){
 			@Override
 			public void keyPressed(KeyEvent arg0) {
 				keySet.add(arg0.getKeyChar());
@@ -84,8 +102,7 @@ public class FrogRunner {
 			@Override
 			public void keyReleased(KeyEvent arg0) {keySet.remove(arg0.getKeyChar());}
 		});
-		
-		map.setVisible(true);
+	
 		animTimer.start();
 	}
 	
