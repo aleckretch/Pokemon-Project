@@ -1,11 +1,6 @@
 package model;
 
 import java.awt.image.BufferedImage;
-
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-
-import view.GUI;
 //Goggles that let you 
 public class Player {
 	private int MAX_SAFARI_BALLS = 30;
@@ -21,7 +16,6 @@ public class Player {
 	private Creature[] collection = new Creature[MAX_CREATURES];
 	private Creature target;
 	private int x, y;
-	boolean enemyPresent = false;
 	
 	public Player(String name){
 		this.name = name;
@@ -29,12 +23,10 @@ public class Player {
 	}
 	public void faceCreature(Creature target){
 		this.target = target;
-		enemyPresent = true;
- 		System.out.println("Facing " + target.getName());
+		System.out.println("Facing " + target.getName());
 	}
 	public void throwRock(){
-		if (absentEnemyViolation()){ return; }
-		System.out.println(name + " is throwing a rock.");
+		System.out.println("Throwing a rock");
 		target.rock(damage);
 		if (!target.isPresent()){
 			System.out.println("(Back to world screen");
@@ -42,8 +34,7 @@ public class Player {
 		}
 	}
 	public void throwBait(){
-		if (absentEnemyViolation()){ return; }
-		System.out.println(name + " is throwing some bait.");
+		System.out.println("Throwing some bait");
 		target.bait(damage);
 		if (!target.isPresent()){
 			System.out.println("(Back to world screen");
@@ -51,10 +42,8 @@ public class Player {
 		}
 	}
 	public void throwBall(){
-		if (absentEnemyViolation()){ return; }
-		
 		//remove a ball
-		System.out.println(name + " is throwing a safari ball.");
+		System.out.println("Throwing a safari ball");
 		if (target.isPresent() && target.ball()){
 			System.out.println("You caught a " + target.getName());
 			//Check if you already have it before adding
@@ -66,10 +55,6 @@ public class Player {
 			System.out.println("(Back to world screen");
 			return;
 		}
-	}
-	public void run(){
-		if (absentEnemyViolation()){ return; }
-		System.out.println(name + " is running away.");
 	}
 	public Creature[] getCollection(){
 		return collection;
@@ -104,22 +89,6 @@ public class Player {
 	{
 		y--;
 	}
-	public String getName(){
-		return name;
-	}
-	public void setName(String name){
-		this.name = name;
-	}
-	private boolean absentEnemyViolation(){
-		if (target == null){
-			JOptionPane.showMessageDialog(new JFrame(), "There is no enemy present.  "
-					+ "This message only appears if something went wrong!");
-			return true;
-		}
-		return false;
-	}
-	public Creature getTarget(){
-		if (absentEnemyViolation()){ return null; }
-		return target;
-	}
+	
+	
 }

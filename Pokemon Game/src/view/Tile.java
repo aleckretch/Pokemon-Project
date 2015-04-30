@@ -14,10 +14,10 @@ public abstract class Tile{
 	public Tile(String img, int x, int y)
 	{
 		Icon imageIcon = new ImageIcon(img);
-		Image unscaledImage = ((ImageIcon) imageIcon).getImage();
+		image = ((ImageIcon) imageIcon).getImage();
 		width=25;
 		height=25;
-		image = unscaledImage.getScaledInstance(width,height,Image.SCALE_DEFAULT);
+		image = image.getScaledInstance(width,height,1);
 		this.x = x;
 		this.y = y;
 	}

@@ -2,7 +2,6 @@ package view;
 
 
 import java.awt.Graphics;
-import java.awt.GridLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -25,7 +24,7 @@ public class Map extends JPanel{
 	private int[][] data;
 	
 	public Map()
-	{
+	{		
 		grid = new Tile[25][25];
 		
 		data = new int[][]{
@@ -82,18 +81,12 @@ public class Map extends JPanel{
 			}
 		}
 		
-		
-
 	}
 	
 	
 	public static void main(String[] args)
 	{
-		JFrame frame = new JFrame();
-		frame.setSize(625,625);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.add(new Map());
-		frame.setVisible(true);
+		new Map();
 	}
 	
 	public void paint(Graphics g)
