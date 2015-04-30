@@ -9,7 +9,7 @@ import javax.imageio.ImageIO;
 
 public abstract class Creature {
 	private int BALL_POWER = 50;
-	private int luck;//an added bonus to the rock's damage, or the bait's luring.  
+	private int luck = 50;//affects each throw type, and its potency
 	private boolean isPresent = true; //goes false if dies or runs
 	private String name;
 	private int hp;
@@ -17,6 +17,8 @@ public abstract class Creature {
 	private int runDuration;
 	private int rarity; //higher means less rare
 	private BufferedImage sprite;
+	private String imgFilePath;
+	private boolean isDead = false;
 	
 	public Creature (String name, String imgFilePath, int hp, int runProb, int runDuration) {
 		this.name = name;
@@ -25,7 +27,7 @@ public abstract class Creature {
 		this.runDuration = runDuration;
 		this.luck = luck;
 		this.sprite = null;
-
+		this.imgFilePath = imgFilePath;
 		try 
 		{
 		    sprite = ImageIO.read(new File(imgFilePath));
@@ -71,7 +73,7 @@ public abstract class Creature {
 	private void checkDead(){
 		if (hp <= 0){
 			isPresent = false;
-			//die();
+			isDead = true;
 		}
 	}
 	private void checkDuration(){
@@ -94,8 +96,17 @@ public abstract class Creature {
 	public int getHp(){
 		return hp;
 	}
+	public int getRunProb(){
+		return runProb;
+	}
 	private int getRandom(int max, int min){
 		Random r = new Random();
 		return r.nextInt(max - min) + min;
+	}
+	public String getImage(){
+		return imgFilePath;
+	}
+	public boolean isDead(){
+		return isDead;
 	}
 }
