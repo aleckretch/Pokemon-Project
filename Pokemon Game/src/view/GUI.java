@@ -129,6 +129,7 @@ public class GUI extends JFrame{
 			public void actionPerformed(ActionEvent e) {
 				System.out.println("Throwing some bait.");
 				player.throwBait();
+				updateGui();
 				updateReadout("Throwing some bait.");
 			}
 		});
@@ -139,7 +140,6 @@ public class GUI extends JFrame{
 				updateReadout("Running Away.");
 			}
 		});
-		
 		bottomPanel.add(rockButton);
 		bottomPanel.add(ballButton);
 		bottomPanel.add(baitButton);
@@ -150,7 +150,8 @@ public class GUI extends JFrame{
 		ImageIcon icon = new ImageIcon(player.getTarget().getImage());
 		enemyImage = new JLabel(icon);
 		
-		/*MOREGAN'S VERSION: ISSUE WITH CASTING
+		//MOREGAN'S VERSION: ISSUE WITH CASTING
+		/*
 		Icon imageIcon = new ImageIcon(player.getTarget().getImage());
 		Image unscaledImage = imageIcon.getImage();
 		int width=200;
