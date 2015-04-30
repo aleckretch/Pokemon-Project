@@ -110,6 +110,7 @@ public class Win {
 		l6.setBounds(269, 122, 61, 16);
 		frame.getContentPane().add(l1);
 		
+		
 		JLabel l7 = new JLabel("STEPS");
 		l7.setBounds(269, 154, 61, 16);
 		frame.getContentPane().add(l7);
