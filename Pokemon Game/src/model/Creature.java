@@ -18,6 +18,7 @@ public abstract class Creature {
 	private int rarity; //higher means less rare
 	private BufferedImage sprite;
 	private String imgFilePath;
+	private boolean isDead = false;
 	
 	public Creature (String name, String imgFilePath, int hp, int runProb, int runDuration) {
 		this.name = name;
@@ -72,7 +73,7 @@ public abstract class Creature {
 	private void checkDead(){
 		if (hp <= 0){
 			isPresent = false;
-			//die();
+			isDead = true;
 		}
 	}
 	private void checkDuration(){
@@ -104,5 +105,8 @@ public abstract class Creature {
 	}
 	public String getImage(){
 		return imgFilePath;
+	}
+	public boolean isDead(){
+		return isDead;
 	}
 }

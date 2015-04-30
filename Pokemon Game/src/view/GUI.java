@@ -70,7 +70,7 @@ public class GUI extends JFrame{
 	JLayeredPane backPane = new JLayeredPane();
 	
 	public GUI(final Player player){
-		playLoadingMusic();
+		//playLoadingMusic();
 		this.player = player;
 		this.setSize(SCREEN_WIDTH, SCREEN_HEIGHT);
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -111,6 +111,10 @@ public class GUI extends JFrame{
 				player.throwRock();
 				updateGui();
 				updateReadout("Throwing a rock.");
+				if (player.getTarget().isDead()){
+					updateReadout("The creature is dead.");
+					//delay for a second before returning to mainscreen. 
+				}
 			}
 		});
 		ballButton.addActionListener(new ActionListener(){
@@ -145,7 +149,17 @@ public class GUI extends JFrame{
 		readout.setEditable(false);
 		ImageIcon icon = new ImageIcon(player.getTarget().getImage());
 		enemyImage = new JLabel(icon);
-		enemyImage.setBounds(SCREEN_WIDTH - 150, 50, 100, 100);
+		
+		/*MOREGAN'S VERSION: ISSUE WITH CASTING
+		Icon imageIcon = new ImageIcon(player.getTarget().getImage());
+		Image unscaledImage = imageIcon.getImage();
+		int width=200;
+		int height=200;
+		Image image = unscaledImage.getScaledInstance(width,height,Image.SCALE_DEFAULT);
+		enemyImage = new JLabel((ImageIcon)image);
+		*/
+		
+		enemyImage.setBounds(SCREEN_WIDTH - 150, 50, 200, 200);
 		enemyName = new JLabel(player.getTarget().getName());
 		//set the bounds based on the name length, and some sort of space ratio. [][]
 		enemyName.setBounds(75, 50, 500, 100);
@@ -182,7 +196,9 @@ public class GUI extends JFrame{
 		frontPane.moveToFront(hpLabel);
 				graphicPanel.add(runProbLabel);
 		*/
-		this.setVisible(true);		
+		this.setVisible(true);
+		StdAudio.play("Pokemon Game/src/Petwoo_Audio.mp3");
+
 	}
 	
 	public void updateCollection(Creature[] in){
